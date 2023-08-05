@@ -51,6 +51,9 @@
   justify-content: center;
   width: 18rem;
 }
+.button-group{
+  margin: 5px;
+}
 
 .App-link {
   color: #61dafb;
