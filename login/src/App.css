@@ -26,6 +26,9 @@
 .bg-body-tertiary{
   background-color: rgb(182, 178, 178);
 }
+.banner{
+  margin: 10px;
+}
 .main-font{
   font-size: 30px;
   color: white;

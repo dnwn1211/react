@@ -16,12 +16,14 @@ function App() {
     
     <div className="App">
       <Container>
-        <Navbar expand="lg" className="bg-body">
-          <Container>
-            <Navbar.Brand className='main-font' href="#">🤖StoryAI</Navbar.Brand>
-          </Container>
-        </Navbar>
-      </Container>
+      <Navbar expand="lg" className="bg-body">
+        <Container className='banner'>
+          <Navbar.Brand className='main-font' href="#">
+            <img src={process.env.PUBLIC_URL+'/img/WhiteLogo.png'} width='100%'/>
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+    </Container>
       <div className='login-box'>
         <Card style={{ width: '18rem' }} className='login-card'>
           <Card.Body>
@@ -49,10 +51,10 @@ function App() {
         <img src={process.env.PUBLIC_URL+'/img/facebook.png'} width='30px'/>
       </Button>{'  '}
       <Button variant="outline-warning">
-      <img src={process.env.PUBLIC_URL+'/img/google.png'} width='30px'/>  
+        <img src={process.env.PUBLIC_URL+'/img/google.png'} width='30px'/>  
       </Button>{'  '}
       <Button variant="outline-dark">
-      <img src={process.env.PUBLIC_URL+'/img/apple.png'} width='30px'/> 
+        <img src={process.env.PUBLIC_URL+'/img/apple.png'} width='30px'/> 
       </Button>
       </div>
     </div>
