@@ -47,7 +47,7 @@ function App() {
             </div>
           </div>
         </>}/>
-        <Route path='/detail' element={<Detail shoes_data={shoes}/>}/>
+        <Route path='/detail/:id' element={<Detail shoes_data={shoes}/>}/>
         {/* nested routes /about/member,/about/location
         <Route path='/about' element={<About/>}>
           <Route path='member' element={<div>dkdkd</div>}/>
@@ -68,13 +68,13 @@ function Card(props){
   )
 }
 
-function About(){
-  return(
-    <div>
-      <h4>회사정보임</h4>
-      <Outlet></Outlet>
-    </div>
-  )
-}
+// function About(){
+//   return(
+//     <div>
+//       <h4>회사정보임</h4>
+//       <Outlet></Outlet>
+//     </div>
+//   )
+// }
 
 export default App;
