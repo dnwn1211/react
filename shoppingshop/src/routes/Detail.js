@@ -1,26 +1,47 @@
+import React, { useEffect } from 'react'
+import {useState} from 'react'
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
 
-let Btn = styled.button`
-  background : ${props=>props.bg};
-  color : black;
-  padding : 10px;
-`
-let Box =styled.div`
-  background : grey;
-  padding : 20px
-`
+// class Detail2 extends React.Component{
+//   componentDidMount(){
+
+//   }
+//   componentDidUpdate(){
+
+//   }
+//   componentWillUnmount(){
+
+//   }
+// }
 
 function Detail(props){
+
+  let[alert, setAlert]=useState(true)
+
+  useEffect(()=>{
+    //mount, update시 실행
+    // html 렌더링 후에 동작함
+    //어려운 연산
+    // 서버에서 데이터 가져오는 작업
+    // 타이머
+    let a = setTimeout(()=>{ setAlert(false)},2000)
+
+    return ()=>{
+      //useEffect 실행전 실행함
+      clearTimeout(a)
+    }
+  })
 
   let {id} =useParams();
 
   return(
     <div className="container">
-      <Box>
-        <Btn bg='blue'>button</Btn>
-        <Btn bg='orange'>button</Btn>
-      </Box>
+      {
+        alert == true ? <div className='alert-container'>
+        2초이내
+      </div>: null
+      }
       <div className="row">
         <div className="col-md-6">
           <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
