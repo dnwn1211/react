@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import {useState} from 'react'
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components'
+import {Nav} from 'react-bootstrap'
 
 // class Detail2 extends React.Component{
 //   componentDidMount(){
@@ -18,6 +19,7 @@ import styled from 'styled-components'
 function Detail(props){
 
   let[alert, setAlert]=useState(true)
+  let[tab, setTab]=useState(0)
 
   useEffect(()=>{
     //mount, update시 실행
@@ -53,8 +55,34 @@ function Detail(props){
           <button className="btn btn-danger">주문하기</button> 
         </div>
       </div>
+      <Nav variant="tabs" defaultActiveKey="link0">
+        <Nav.Item>
+          <Nav.Link onClick={()=>{setTab(0)}} eventKey='link0'>0</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link onClick={()=>{setTab(1)}} eventKey='link1'>1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link onClick={()=>{setTab(2)}} eventKey='link2'>2</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <TabContent tab={tab}/>
     </div> 
   )
 }
+function TabContent(props){
+  if(props.tab==0){
+    return <div>내용0</div>
+  }
+  else if(props.tab==1){
+    return <div>내용1</div>
+  }
+  else if(props.tab==2){
+    return <div>내용2</div>
+  }
+  //if 필요 없는 방법
+  //return [<div>내용0</div>,<div>내용0</div>,<div>내용0</div>][tab]
+}
+
 
 export default Detail;

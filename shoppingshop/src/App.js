@@ -1,6 +1,6 @@
 import './App.css';
 import {useState} from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 //react bootstrap
 import Container from 'react-bootstrap/Container';
@@ -54,6 +54,7 @@ function App() {
               let copy = [...shoes, ...result.data];
               setShoes(copy);
             })
+            //axios.post('url',{name : 'kim'})
           }}>더보기</button>
         </>}/>
         <Route path='/detail/:id' element={<Detail shoes_data={shoes}/>}/>
@@ -64,8 +65,6 @@ function App() {
           <Route path='member' element={<div>dkdkd</div>}/>
           <Route path='location' element={<About/>}/>
         </Route> */}
-      
-      
       </Routes>
     </div>
   );
