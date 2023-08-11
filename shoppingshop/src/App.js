@@ -13,10 +13,11 @@ import data from './data.js';
 
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './routes/Detail';
+import axios from 'axios'
 
 function App() {
 
-  let [shoes]=useState(data)
+  let [shoes, setShoes]=useState(data)
   let navigate=useNavigate();
 
   return (
@@ -40,19 +41,31 @@ function App() {
               {
                 shoes.map((a,i)=>{
                   return(
-                    <Card shoes_data={shoes[i]} n={i+1}></Card>
+                    <Card shoes_data={shoes[i]} n={i+1} key={i}></Card>
                   )
                 })
               }
             </div>
           </div>
+          <button onClick={()=>{
+            axios.get('https://codingapple1.github.io/shop/data2.json')
+            .then((result)=>{
+              console.log(result.data)
+              let copy = [...shoes, ...result.data];
+              setShoes(copy);
+            })
+          }}>더보기</button>
         </>}/>
         <Route path='/detail/:id' element={<Detail shoes_data={shoes}/>}/>
+        
+        
         {/* nested routes /about/member,/about/location
         <Route path='/about' element={<About/>}>
           <Route path='member' element={<div>dkdkd</div>}/>
           <Route path='location' element={<About/>}/>
         </Route> */}
+      
+      
       </Routes>
     </div>
   );
