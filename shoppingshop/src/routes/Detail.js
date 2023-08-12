@@ -66,22 +66,32 @@ function Detail(props){
           <Nav.Link onClick={()=>{setTab(2)}} eventKey='link2'>2</Nav.Link>
         </Nav.Item>
       </Nav>
-      <TabContent tab={tab}/>
+      <TabContent shoes_data={props.shoes_data} tab={tab}/>
     </div> 
   )
 }
-function TabContent(props){
-  if(props.tab==0){
-    return <div>내용0</div>
-  }
-  else if(props.tab==1){
-    return <div>내용1</div>
-  }
-  else if(props.tab==2){
-    return <div>내용2</div>
-  }
+function TabContent({tab, shoes_data}){
+  // if(props.tab==0){
+  //   return <div>내용0</div>
+  // }
+  // else if(props.tab==1){
+  //   return <div>내용1</div>
+  // }
+  // else if(props.tab==2){
+  //   return <div>내용2</div>
+  // }
+  //tab 변경 때마다 작동
+  let [fade, setFade]=useState('')
+  useEffect(()=>{
+    setTimeout(()=>{setFade('end')},100)
+    return()=>{
+      setFade('')
+    }
+  },[tab])
   //if 필요 없는 방법
-  //return [<div>내용0</div>,<div>내용0</div>,<div>내용0</div>][tab]
+  return <div className={'start'+fade}>{
+    [<div>{shoes_data[0].title}</div>,<div>내용1</div>,<div>내용2</div>][tab]
+  }</div>
 }
 
 
