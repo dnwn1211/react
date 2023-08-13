@@ -14,6 +14,7 @@ import data from './data.js';
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './routes/Detail';
 import axios from 'axios'
+import Cart from './routes/Cart.js'
 
 function App() {
 
@@ -58,7 +59,7 @@ function App() {
           }}>더보기</button>
         </>}/>
         <Route path='/detail/:id' element={<Detail shoes_data={shoes}/>}/>
-        
+        <Route path='/cart' element={<Cart/>}/>
         
         {/* nested routes /about/member,/about/location
         <Route path='/about' element={<About/>}>
